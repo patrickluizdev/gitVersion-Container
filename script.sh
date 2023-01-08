@@ -15,6 +15,21 @@ if [ "$LATEST_VERSION" == "$LOCAL_VERSION" ]; then
   echo "O repositório está atualizado."
 else
   echo "O repositório precisa ser atualizado."
+
+  echo "            "
+  echo "     *     "
+  echo "    ***     "
+  echo "   **A**    "
+  echo "  ***T***   "
+  echo " ****T****  "
+  echo "*********** "
+  echo "     *     "
+  echo "     *     "
+  echo "     *     "
+
+
   git pull https://github.com/$REPO_OWNER/$REPO_NAME
-  
+
+
+  echo "O repositório foi atualizado."
 fi
