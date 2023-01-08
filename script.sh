@@ -5,7 +5,7 @@ REPO_OWNER="patrickluizdev"
 REPO_NAME="gitVersion-Container"
 
 # Obter a última versão do repositório usando a API do GitHub
-LATEST_VERSION=$(curl -s -H https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/git/refs/heads/master | jq .object.sha)
+LATEST_VERSION=$(curl -s https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/git/refs/heads/master)
 
 # Verificar a versão do repositório local
 LOCAL_VERSION=$(git rev-parse HEAD)
@@ -15,4 +15,6 @@ if [ "$LATEST_VERSION" == "$LOCAL_VERSION" ]; then
   echo "O repositório está atualizado."
 else
   echo "O repositório precisa ser atualizado."
+  git pull https://github.com/$REPO_OWNER/$REPO_NAME
+  
 fi
